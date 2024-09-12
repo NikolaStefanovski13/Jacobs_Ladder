@@ -1,0 +1,80 @@
+data_source:
+  type: 'yfinance'
+
+logging:
+  level: 'INFO'
+  file: 'signals_bot.log'
+
+data_parameters:
+  timeframe: '15m'
+  history_length: '7d'  # Get 7 days of data
+
+strategy:
+  atr_period: 14
+  ma_period: 50
+  fib_period: 100
+  lstm_lookback: 60
+  capital_allocation:
+    momentum: 0.4
+    mean_reversion: 0.3
+    breakout: 0.3
+
+risk_management:
+  risk_per_trade: 0.01
+  max_risk_per_trade: 0.02
+  stop_loss_pct: 0.01
+  max_leverage: 2
+
+trading:
+  symbols:
+    - 'BTC-USD'
+    - 'ETH-USD'
+    - 'BNB-USD'
+    - 'XRP-USD'
+    - 'ADA-USD'
+    - 'DOGE-USD'
+    - 'SOL-USD'
+    - 'TRX-USD'
+    - 'DOT-USD'
+    - 'MATIC-USD'
+    - 'LTC-USD'
+    - 'AVAX-USD'
+    - 'UNI1-USD'  # Uniswap
+    - 'LINK-USD'
+    - 'ATOM-USD'
+    - 'XLM-USD'
+    - 'ALGO-USD'
+    - 'XMR-USD'
+    - 'ETC-USD'
+    - 'FIL-USD'
+    - 'VET-USD'
+    - 'ICP-USD'
+    - 'THETA-USD'
+    - 'AAVE-USD'
+    - 'EOS-USD'
+    - 'XTZ-USD'
+    - 'CAKE-USD'
+    - 'EGLD-USD'
+    - 'NEO-USD'
+    - 'IOTA-USD'
+    - 'WAVES-USD'
+    - 'DASH-USD'
+    - 'KSM-USD'
+    - 'ZEC-USD'
+    - 'COMP-USD'
+    - 'HNT-USD'
+    - 'CHZ-USD'
+    - 'HBAR-USD'
+    - 'NEAR-USD'
+    - 'DCR-USD'
+  iteration_interval: 900  # 15 minutes
+  cooldown_period: 180  # 3 minutes cooldown
+  signal_validity_window: 600  # 10 minutes
+
+backtesting:
+  start_date: '2023-01-01'
+  end_date: '2023-12-31'
+
+output:
+  signal_file: 'generated_signals.csv'
+  performance_report: 'performance_report.html'
