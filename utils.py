@@ -43,5 +43,3 @@ def format_signal(signal):
 
 def fetch_all_ohlcv(symbols, timeframe, history_length):
     return {symbol: fetch_ohlcv(symbol, timeframe, history_length) for symbol in symbols}
-
-# ... (keep other utility functions)
